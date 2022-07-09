@@ -153,12 +153,15 @@ called a _Foreign Key_. This naming convention helps avoid confusion.
 
 There are several ways you can relationally link tables:
 
-- **One to One** — One row in a data table links to one other row.
-- **One to Many** — One row in a data table is linked to many rows in another data table.
+- **One to One** — Each row in a parent data table can link to one other row in the related table.
+- **Many to One** — Many rows in a parent data table can link to one row in another data table.
+- **One to Many** — Each row in a data table can link to many rows in another data table.
 - **Many to Many** — Many rows in a data table are linked to many rows in another data table.\
   Many to many relationships require a special junction data table to manage these relationships.
 - **Many to Any** — Many Rows in a data table link to many rows across any other data tables.\
   requires a junction data table, like many-to-many relationships, but also requires the a column for the data table name.
+
+_Note that in the data model, Many-to-One and One-to-Many relationship are exactly the same type of relationship._
 
 ### Working With Relational Data Models
 
