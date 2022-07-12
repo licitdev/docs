@@ -55,9 +55,16 @@ displayed with [Collection Naming Translations](#collection-setup).
 
 :::
 
-:::warning Composite Primary Keys
+:::warning Composite Keys
 
-Directus does not currently support composite primary keys.
+Directus does not currently support Composite Keys. If your project uses composite keys, you will need to make an
+adjustment to the data model.
+
+:::
+
+:::warning SQL Views
+
+Directus does not currently support creation of virtual tables via SQL Views.
 
 :::
 
