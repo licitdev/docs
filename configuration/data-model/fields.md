@@ -14,15 +14,27 @@
 
 **Field Context Menu** — Contains the following controls:
 
-- [<span mi icon>edit</span> Edit Field](#configure-a-field) — Opens the field's Field Configuration Drawer.
+- [<span mi icon>edit</span> Edit Field](#configure-a-field) — Opens the Field Configuration Drawer.
 - [<span mi icon>content_copy</span> Duplicate Field](#duplicate-a-field) — Duplicates a field along with all of its configuration options.
 - [<span mi icon>visibility_off</span> Hide Field on Detail](#toggle-field-visibility-for-admins) — Toggle field visibility on the Item Detail Page for Admin Users.
 - [Width](#adjust-field-width) — Fields have three different width options:
   - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-  - <span mi icon>border_right</span> **Full Width** — (Default) The field is shown at the full form width.
+  - <span mi icon>border_right</span> **Full Width** — The field is shown at the full form width. _The Default_
   - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
 
 **The Field Configuration Drawer** — Provides all [field configuration](#configure-a-field) options.
+
+## Field Types
+
+<!--
+### Standard Fields
+### Presentation and Aliases
+### Field Groups
+### Single File
+### Multiple Files
+### Relationship Fields
+### Translation Fields
+-->
 
 ## Create a Field (Standard)
 
@@ -30,7 +42,7 @@
 	<source src="" type="video/mp4" />
 </video>
 
-To make field configuration as intuitive and easy as possible, a template wizard is provided so that you can create fields pre-configured for common use-cases. When you create a field this way, you will still have full to [configure the field](#configure-a-field) as desired.
+To make field configuration as intuitive and easy as possible, a template wizard is provided so that you can create fields pre-configured for common use-cases. When you create a field this way, you will still have full power to [configure the field](#configure-a-field) as desired.
 
 1. Navigate to **Settings > Data Model > [Collection]**.
 2. Under **Fields & Layout**, click the **Create Field** button.\
@@ -52,7 +64,7 @@ This field creation method opens the field configuration drawer, so you can cust
 1. Navigate to **Settings > Data Model > [Collection Name]**.
 2. Under **Fields & Layout**, click the **Create Field in Advanced Mode** button.\
    A dropdown menu will appear with various field types to choose from.
-3. Click to choose the field type and the field configuration drawer will open.
+3. Click to choose the field type and the Field Configuration Drawer will open.
 4. Configure your field as desired.
 5. Click <span mi btn>check</span> to confirm.
 
@@ -70,20 +82,20 @@ experience further by configuring it as desired.
 	<source src="" type="video/mp4" />
 </video>
 
-The field configuration drawer is composed of eight sections. These provide extensive Field customization options, from
+The Field Configuration Drawer is composed of eight sections. These provide extensive customization options, from
 the database column's technical details, to how it is displayed and interacted with, and even custom input validation
 and conditional display logic. To configure a field, follow these steps.
 
 1. Navigate to **Settings > Data Model > [Collection Name]**.
 2. Under **Fields & Layout**, click the field you want to update.\
-    The field configuration drawer will open.
+   The field configuration drawer will open.
 3. Navigate to one of these sections and configure the field as desired:
    - [Schema](/configuration/data-model/fields/schema) — Defines the database column schema for the field.
    - [Relationship](/configuration/data-model/fields/relationship) — Controls _and only appears when configuring relational_ field details.
    - [Translations](/configuration/data-model/fields/translations) — Controls _and only appears when configuring translation_ field details.
    - [Field](/configuration/data-model/fields/field) — Sets details for the field input, which is displayed on the [item page](/app/content/items/).
    - [Interface](/configuration/data-model/fields/interface) — Configures how you interact with the field's values.
-   - [Display](/configuration/data-model/fields/display) — Configures how field values are displayed in the data studio.
+   - [Display](/configuration/data-model/fields/display) — Configures how field values are displayed in the Data Studio.
    - [Validation](/configuration/data-model/fields/validation) — Creates a filter to determine valid user input.
    - [Conditions](/configuration/data-model/fields/conditions) — Alters the current field's setup based on the values of other fields.
 4. Click <span mi btn>check</span> to confirm.
@@ -106,11 +118,11 @@ To duplicate a field, follow these steps:
 1. Navigate to **Settings > Data Model > [Collection Name]**.
 2. Click the <span mi icon>more_vert</span> icon for the field you want to duplicate.
 3. Click the <span mi icon>content_copy</span> **Duplicate Field** option.
-4. Choose the Collection you'd like to Create the Field in and set a Field Name.
+4. Choose the collection you'd like to create the field in and set the Field Name.
 
 ::: warning Relational and Primary Key Fields
 
-Currently, it is not possible to duplicate relational Fields or a Collection's Primary Key.
+Currently, it is not possible to duplicate relational fields or a collection's primary key.
 
 :::
 
@@ -139,22 +151,16 @@ Adjusting the field width in **Fields and Layout** will change field width on th
 1. Click <span mi icon>more_vert</span> to open the field's context menu.
 1. Choose one of the following:
    - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-   - <span mi icon>border_right</span> **Full Width** — (Default) The field is shown at the full form width.
+   - <span mi icon>border_right</span> **Full Width** — The field is shown at the full form width. _The Default._
    - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
 
-## Adjust Field Order
+## Manually Sort Fields
 
 <video title="Group and Sort Field" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-Adjusting the Field order in **Fields and Layout** will change field order on the [Item Detail Page](/app/content/collections/#item-page). To adjust Field order, click <span mi icon>drag_indicator</span> to drag and drop the field as desired.
-
-<!--
-## Create an Alias Field
-	Adv > Presentation and Aliases : Divider, Button Links, Notice
-	Adv > Field Group : Accordian, Detail Group, Raw Group
--->
+Adjusting the field order in **Fields and Layout** will change the order on the [Item Detail Page](/app/content/collections/#item-page). To manually sort fields, click <span mi icon>drag_indicator</span> to drag and drop the field as desired.
 
 <!-- MOVED TO configuration/data-model/collections.md
 ## Configure a Sort Field
@@ -184,7 +190,8 @@ When you [create a Collection](/configuration/data-model/collections/#create-a-c
 To configure manual sorting within an Interface (eg: M2M, O2M, or M2A), configure as above, but also set the **Sort
 Field** on the Field's Relationship pane.
 
-::: -->
+:::
+-->
 
 ## Delete a Field
 
