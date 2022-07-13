@@ -32,6 +32,12 @@ Allow extending and customizing the data pipeline and platform logic.
 - [Email Templates](/extensions/email-templates/) — Created with Liquid.js
 - [Migrations](/extensions/migrations/) — Created with JavaScript / Node.js
 
+## Hybrid Extensions
+
+Allow adding functionality to the API as well as the App.
+
+- [Operations](/extensions/operations/) — Created with Vue.js and JavaScript / Node.js
+
 <!-- ## CLI Extensions
 
 TBD

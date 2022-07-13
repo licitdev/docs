@@ -476,6 +476,11 @@ module.exports = {
 					},
 					{
 						type: "page",
+						path: "/extensions/operations",
+						title: "Operations",
+					},
+					{
+						type: "page",
 						path: "/extensions/panels",
 						title: "Panels",
 					},
