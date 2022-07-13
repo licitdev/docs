@@ -1,18 +1,13 @@
 # Collections
 
-> Collections are data tables and come with all the same power and functionality, despite the less technical name.
-
-<!--
-@TODO finish Collections headline.
-Throughout the app, data is represented as Collections of Items, instead of rows of data.
--->
+> Collections are data tables and come with all the same power and functionality, despite the less technical name. Directus also provides table and field configuration options to fit common uses cases.
 
 [[toc]]
 
 <!--
 :::tip Before You Begin
 
-Learn Directus
+Quickstart Guide
 Read Data Model Introduction
 
 :::
@@ -32,32 +27,32 @@ API documentation
 To create a Collection, follow these steps.
 
 1. Navigate to **Settings > Data Model** and click <span mi btn>add</span> in the page header and a drawer will open.
-2. Enter a unique **Collection Name**.\
-   This is used as the data table key, API Collection key, and default Collection name in the App.
+2. Enter a unique **Collection Name**. This cannot be modified later, but can be translated.\
+   This is used as the data table key, API collection key, and default collection name throughout the App.
 3. Optional: Make any other configurations as desired.
    - **Singleton** — Toggles whether the Collection is a [Singleton](#configure-a-collection-collection-setup).
    - **Primary Key Field** — Sets the name of the primary key field, defaults to `id`.
    - **Type** — Sets the [type of ID](/configuration/data-model/fields/#keys-and-ids) to use for this Collection.
 4. Click <span mi btn>arrow_forward</span> to confirm.
 5. Enable and rename the other Optional System Fields as desired:
-   - **Status** — Stores Item status.
-   - **Sort** — Enables drag-and-drop sorting of Items.
-   - **Created On** — Stores the date that the Item was created.
-   - **Created By** — Stores the User that created this Item.
-   - **Updated On** — Stores the last date updated.
-   - **Updated By** — Stores the last User to edit the file.
-6. Click <span mi btn>check</span> to confirm and create the Collection.
+   - **Status** — Stores item status.
+   - **Sort** — Adds a field which enables drag-and-drop sorting of items.
+   - **Created On** — Logs the date an item was created.
+   - **Created By** — Logs the user that created this item.
+   - **Updated On** — Logs the date an item was last updated.
+   - **Updated By** — Stores the last user to edit the file.
+6. Click <span mi btn>check</span> to confirm and create the collection.
 
 ::: danger Immutable Keys
 
-The Collection Name from step two cannot be modified after Collection creation. However, you can override how it is
+The collection name from step two cannot be modified after collection creation. However, you can override how it is
 displayed with [Collection Naming Translations](#collection-setup).
 
 :::
 
 :::warning Composite Keys
 
-Directus does not currently support Composite Keys. If your project uses composite keys, you will need to make an
+Directus does not currently support composite keys. If your project uses composite keys, you will need to make an
 adjustment to the data model.
 
 :::
@@ -70,10 +65,9 @@ Directus does not currently support creation of virtual tables via SQL Views.
 
 ::: tip Database Tables
 
-Remember, a Directus Collection is simply a database table. Therefore, you can import or create a table directly in the
-database and it will automatically appear within Directus. The first time you manage that table, a
-`directus_collections` record will be created with default values. To learn more, see the docs on
-[Directus Collections](/configuration/data-model/system-collections/#collections).
+Remember, a collection is simply a database table. Therefore, you can import or create a table directly in the
+database and it will automatically appear within you Directus project. The first time you manage that table, a
+`directus_collections` record will be created with default values.
 
 :::
 
@@ -85,7 +79,7 @@ database and it will automatically appear within Directus. The first time you ma
 	<source src="" type="video/mp4" />
 </video>
 
-To toggle whether a Collection is hidden by default in the Content Module, follow these steps.
+To toggle whether a collection is hidden by default in the Content Module, follow these steps.
 
 1. Navigate to **Settings > Data Model**.
 2. Click <span mi icon>more_vert</span> to open the Collection's Context Menu.
@@ -93,9 +87,8 @@ To toggle whether a Collection is hidden by default in the Content Module, follo
 
 :::tip
 
-Assuming a User has [access permissions](/configuration/users-roles-permissions), hidden Collections can still be
-viewed. They must right-click on the Navigation Bar and choose <span
-mi icon>visibility</span> **Show Hidden Collections**.
+Assuming a user has [access permissions](/configuration/users-roles-permissions), hidden collections can still be
+viewed. They must right-click on the Navigation Bar and choose <span mi icon>visibility</span> **Show Hidden Collections**.
 
 :::
 
@@ -105,15 +98,15 @@ mi icon>visibility</span> **Show Hidden Collections**.
 	<source src="" type="video/mp4" />
 </video>
 
-Folders allow you to subnest and group how Collections are displayed. This feature simply changes how the Collections
+Folders allow you to sub-nest and group how collections are displayed. This feature simply changes how the collections
 are displayed under **Settings > Data Model** and in the Content Module. It has no impact on the data model. To create a
-Folder, follow these steps.
+folder, follow these steps.
 
 1. Navigate to **Settings > Data Model**.
 2. Click <span mi btn>create_new_folder</span> in the page header.
-3. Set a Folder Key, which will be used as the Folder's name.
-4. Optional: Set the Folder Icon, Color, Note and Translations as desired.
-5. Click **Save** to create your Folder.
+3. Set a folder key, which will also be used as the folder's name.
+4. Optional: Set the folder icon, color, note and translations as desired.
+5. Click **Save** to create your folder.
 
 ## Toggle Folder Display
 
@@ -121,8 +114,10 @@ Folder, follow these steps.
 	<source src="" type="video/mp4" />
 </video>
 
+To toggle folder display, follow these steps.
+
 1. Navigate to **Settings > Data Model**.
-2. Click the Folder icon on the desired Collection to toggle the following displays:
+2. Click the folder icon on the desired collection to toggle the following displays:
    - **Start Open**
    - **Start Collapsed**
    - **Always Open**
@@ -133,11 +128,11 @@ Folder, follow these steps.
 	<source src="" type="video/mp4" />
 </video>
 
-To sort and nest Collections in **Settings > Data Model** and **Content Module**, follow these steps.
+To sort and nest collections in **Settings > Data Model** and **Content Module**, follow these steps.
 
 1. Navigate to **Settings > Data Model**.
-2. Click and drag <span mi icon>drag_handle</span> to position Collections as desired.\
-   To nest a Collection, drag below and to the right of an intended parent Folder or Collection.
+2. Click and drag <span mi icon>drag_handle</span> to position collections as desired.\
+   To nest a collection, drag below and to the right of an intended parent folder or collection.
 
 ## Configure a Collection
 
@@ -145,11 +140,11 @@ To sort and nest Collections in **Settings > Data Model** and **Content Module**
 	<source src="" type="video/mp4" />
 </video>
 
-To configure a Collection, follow these steps.
+To configure a collection, follow these steps.
 
-1. Navigate to **Settings > Data Model** and click the desired Collection.\
-   The Collection's Configuration Page will open.
-2. Make Configurations as desired.
+1. Navigate to **Settings > Data Model** and click the desired collection.\
+   The collection's configuration page will open.
+2. Make configurations as desired.
 3. Click <span mi btn>check</span> to confirm.
 
 The configuration options available on this page are broken into the following six categories.
@@ -163,142 +158,131 @@ The configuration options available on this page are broken into the following s
 
 :::tip
 
-A Collection's configuration details are also accessible via the [Collections API](/reference/system/collections/).
+A collection's configuration details are also accessible via the [Collections API](/reference/system/collections/).
 
 :::
 
-## Configure a Collection: Fields & Layout
+### Fields & Layout
 
 ![Fields and Layout](image.webp)
 
-This section allows you to create and manage Fields as well as configure how they are displayed on the
-[Item Page](/app/content/items). To learn more, please see the documentation on
-[Fields](/configuration/data-model/fields).
+This section allows you to create and manage fields as well as configure how they are displayed on the
+[Item Details Page](/app/content/items). To learn more, please see the documentation on [Fields](/configuration/data-model/fields).
 
-## Configure a Collection: Collection Setup
+### Collection Setup
 
 <video title="Collection Setup" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-Modify how the Collection is displayed in the Content Module.
+These controls allow you to modify how the collection is displayed within the Content Module.
 
-- **Collection Name** — Displays the Collection Name, which cannot be modified.\
-  However, you can override how it is displayed with Collection Naming Translations, below.
-- **Note** — Set a helpful note that explains the Collection's purpose.
-- **Icon** — Set an icon used throughout the App when referencing this Collection.
-- **Color** — Set a color for the icon, shown in the Navigation Bar and its Header.
-- **Display Template** — Create a [Display Template](/app/display-templates) for the Collection.
-- **Hidden** — Toggle whether the Collection should be globally hidden in the other App modules.\
-  Keep in mind that Admin roles can always see all Collections.
+- **Collection Name** — Displays the collection's name, which cannot be modified. However, you can override the displayed name with Collection Naming Translations, shown lower on this list.
+- **Note** — Set a helpful note that explains the collection's purpose.
+- **Icon** — Set an icon used throughout the app when referencing this collection.
+- **Color** — Set a color for the icon, shown in the Navigation Bar and its page header.
+- **Display Template** — Create a [Display Template](/app/display-templates) for the collection.
+- **Hidden** — Toggle whether the collection should be globally hidden in the other app modules, even for admin users. You cannot hide collections for admins via permissions like other roles, so this comes in handy to tidy up the Content Module.
 - **Singleton** — Toggle to bypass the [Collection Page](/app/content/collections/) and take users to the
   [Item Details Page](/app/content/items/).\
-- **Collection Naming Translations** — Translate the Collection Name across multiple languages. When the default
+- **Collection Naming Translations** — Translate the collection name across multiple languages. When the default
   language is changed in [Project Settings](/configuration/project-settings/#general) or
   [User Details Page](/app/user-directory/#user-details-page), the relevant translation, if any exists, will be used
   throughout the App.
 
 :::tip Collection Naming Translations
 
-By default, Directus uses the [Title Formatter](/getting-started/glossary/#title-formatter) to display Collection keys
+By default, Directus uses the [Title Formatter](/getting-started/glossary/#title-formatter) to display collection keys
 as human readable names, but you can also use translations to explicitly rename more technical table keys.
 
 :::
 
 :::tip What's a Singleton?
 
-A Singleton is a Collection that will only contain one single Item, such as data on an About Us page on a website.
+A Singleton is a collection that only contains one single item, such as the data for an **About Us** page on a website.
 
 :::
 
-## Configure a Collection: Archive
+### Archive
 
 <video title="Archive" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-Select a Field to handle archiving Items. This provides a _soft-delete_ functionality for Items in a Collection.
-Archived Items will still exist in the Collection and database, but can be filtered for.\
-To configure an Archive Field, follow these steps.
+Selects a field to handle archiving items. This provides a _soft-delete_ functionality for items in a collection.
+Archived items will still exist in the collection and database, but are filtered within the Data Studio.\
+To configure an archive field, follow these steps.
 
-- **Archive Field** — Selects the Archive Field from a dropdown menu.
+- **Archive Field** — Selects the archive field from a dropdown menu.
 - **Archive App Filter** — Toggles whether app users can
   [filter for archived items](/app/content/collections/#view-archived-items).
-- **Archive Value** — A value that is assigned to the Field when an Item as
+- **Archive Value** — A value that is assigned to the field when an item is
   [archived](/app/content/items/#archive-an-item).
-- **Unarchive Value** — A value that is assigned to the Field when an Item is
+- **Unarchive Value** — A value that is assigned to the field when an item is
   [unarchived](/app/content/items/#archive-an-item).
 
 :::tip Automatic Setup
 
-When creating a new Collection, you have the option to create an optional [Status Field](#optional-system-fields). If
-you choose to include this Field, the Collection's archive settings will be automatically configured for you.
+When you [create a collection](#create-a-collection), you have the option to create an optional Status Field. If
+you choose to include this field, the collection's archive settings will be automatically configured for you.
 
 :::
 
 :::tip Archive Field Values
 
-The Archive Fields can contain any number of additional values besides the archived and unarchived values defined above.
+The archive fields can contain any number of additional values besides the archived and un-archived values defined above.
 
 :::
 
 :::tip Archived Item Management via API
 
-Archived items are hidden in the App by default, but they are still returned normally via the API unless explicitly
-filtered out. This gives you the flexibility to manage archived Items however you want when working with the API.
+Archived items are hidden in the app by default, but they are still returned normally via the API unless explicitly
+filtered out. This gives you the flexibility to manage archived items however you want when working with the API.
 
 :::
 
-## Configure a Collection: Sort
+### Sort
 
 <video autoplay muted loop controls title="Batch Edit Items">
 	<source src="https://cdn.directus.io/docs/v9/app-guide/content/content-collections/content-collections-20220415A/manually-sort-items-20220415A.mp4" type="video/mp4" />
 </video>
 
-<!--
-@TODO
-Use the video from /app/content/collection/#manually-sort-items
--->
-
-The sort feature enables Users to [manually sort Items](/app/content/collection/#manually-sort-items) within the Directus App. This is typically shown on the Collection Page and it can
-also be used for sorting Items within [Junction Tables](/getting-started/glossary/#junction-collections). A Standard Field configured to store `INTEGER` data type is required. As shown in the video, Fields which cannot serve as Sort Fields will be grayed out and un-selectable in the **Sort Field** dropdown. To configure a Sort Field,
-follow these steps.
+The sort feature enables users to [manually sort Items](/app/content/collection/#manually-sort-items) within the Data Studio. This is typically shown on the **Content Module > Collection Page**. It can
+also be used for sorting items within [Junction Collections](/getting-started/glossary/#junction-collections). A standard field, configured with an `INTEGER` data type, is required. As shown in the video, fields which cannot serve as sort fields will be grayed out and un-selectable in the Sort Field dropdown. To configure a sort field, follow these steps.
 
 1. [Create a Field](configuration/data-model/fields/#create-a-field-standard) with an `INTEGER` data type.\
-2. Choose your Sort Field from the dropdown under **Settings > Data Model > [Collection] > Sort**.
-3. Next, you may want to learn how to [manually sort Items](/app/content/collections/#manually-sort-items).
+2. Choose a field from the dropdown under **Settings > Data Model > [Collection] > Sort**.
+3. Click <span mi btn>check</span> to confirm.
+4. Once you sort field is configured, you may want to learn how to [manually sort Items](/app/content/collections/#manually-sort-items).
 
-**Sort Field** — Select a Field to custom sort and order Items. Click **Deselect** to disable.
+**Sort Field** — Select a Field to custom sort and order items. Click **Deselect** to disable.
 
 ::: tip Automatic Setup
 
-When you [create a Collection](/configuration/data-model/collections/#create-a-collection), you have the option of creating a **Sort** field. If you choose to include this Field, the Collection's sort settings will automatically be configured for you.
+When you [create a Collection](/configuration/data-model/collections/#create-a-collection), you have the option of creating a **Sort** field. If you choose to include this field, the collection's sort settings will automatically be configured for you.
 
 :::
 
 ::: tip Interface Sorting
 
-To configure manual sorting within a relational Interface (eg: M2M, O2M, or M2A), configure as above, but also set the **Sort Field** on the Field's Relationship pane.
+To configure manual sorting within a relational Interface (eg: M2M, O2M, or M2A), configure as above, but also set the **Sort Field** within the relationship section of the field's configuration drawer.
 
 :::
 
-<!--
-@TODO configuration/data-model/fields/field
 :::tip Configure to Hidden
 
-You may want to set this field to be "Hidden" so it doesn't show up within the Item Details Page.
+You may want to set this field to be **Hidden** so it doesn't show up within the Item Details Page.
 
 :::
--->
 
-## Configure a Collection: Accountability
+### Accountability
 
 <video title="Accountability" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
 By default, your Directus Project tracks all [activity](/reference/system/activity) and
-[revisions](/reference/system/revisions/) for Collections. However, you can override this and choose what data is
+[revisions](/reference/system/revisions/) for collections. However, you can override this and choose what data is
 tracked.
 
 - **Activity & Revision Tracking** — The following options are supported:
@@ -308,22 +292,22 @@ tracked.
 
 :::tip Accountability vs. Telemetry
 
-This is a log of _who does what_ in the Project and is for your team's own use. This is different from
-[telemetry](/self-hosted/config-options/#telemetry), which is configured in environment variables.
+Accountability is a log of _who does what_ in your project. It is for your team's own use. This is different from
+[telemetry](/self-hosted/config-options/#telemetry), which is configured under [environment variables](/self-hosted/config-options/#telemetry).
 
 :::
 
-## Configure a Collection: Duplication
+### Duplication
 
 <video title="Duplication" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-The **Save as Copy** option on the Item Page offers a way to effectively duplicate the current Item. This option lets
-you configure which parent/relational Field Values will be copied. However, since there may be unique or relational data
-within the Item, it's important to control exactly what will be copied.
+The **Save as Copy** option on the Item Details Page offers a way to effectively duplicate the current item. Since there may be unique or relational data
+within the item, it's important to control exactly what will be copied. Duplication lets
+you configure which parent & relational field values will be copied when you use **Save as Copy** on an item.
 
-- **Item Duplication Fields** — Check the Field(s) to copy values for when duplicating an Item.
+- **Item Duplication Fields** — Check the field(s) to copy values for when duplicating an item.
 
 ## Delete a Collection
 
@@ -331,7 +315,7 @@ within the Item, it's important to control exactly what will be copied.
 	<source src="" type="video/mp4" />
 </video>
 
-To delete a Collection, follow these steps.
+To delete a collection, follow these steps.
 
 1. Navigate to **Settings > Data Model > [Collection Name]**.
 2. Click <span mi btn dngr>delete</span> in the page header.

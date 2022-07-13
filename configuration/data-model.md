@@ -266,7 +266,7 @@ You configure fields under **Settings > Data Model > [Collection] > [Field] > Fi
 	<source src="" type="video/mp4" />
 </video>
 
-This type of field is a virtual column. That is to say, they are presented as fields on the item details page, _they may look and feel like they might be columns_, but do not actually map to a unique column in the database. Alias fields enhance how you present, group and manage data. Some alias fields let you access data or information which is integrally _related_ to the current collection, but not stored in the current collection _(i.e., relationally linked rows)_.
+This type of field is a virtual column. That is to say, they are presented as fields on the item details page, _they may look and feel like they might be columns_, but do not actually map to a unique column in the database. Alias fields enhance how you present, group and manage data. In some cases, they let you access data or information which is _related_ to the item in the current collection, but not stored in the current collection _(i.e., relationally linked rows)_.
 
 ## Items
 
