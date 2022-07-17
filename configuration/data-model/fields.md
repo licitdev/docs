@@ -1,6 +1,7 @@
 # Fields
 
-> Fields are essentially database columns. But they also allow you to custom configure how values are displayed and interacted with in the data studio.
+> Fields are essentially database columns. But they also allow you to custom configure how values are displayed and
+> interacted with in the data studio.
 
 [[toc]]
 
@@ -18,23 +19,11 @@
 - [<span mi icon>content_copy</span> Duplicate Field](#duplicate-a-field) — Duplicates a field along with all of its configuration options.
 - [<span mi icon>visibility_off</span> Hide Field on Detail](#toggle-field-visibility-for-admins) — Toggle field visibility on the Item Detail Page for Admin Users.
 - [Width](#adjust-field-width) — Fields have three different width options:
-  - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-  - <span mi icon>border*right</span> **Full Width** — The field is shown at the full form width. \_The Default*
-  - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
+  - <span mi icon>border_vertical</span> Half Width — The field is shown at half the form width.
+  - <span mi icon>border_right</span> Full Width — The default. The field is shown at the full form width.
+  - <span mi icon>aspect_ratio</span> Fill Width — The field is shown filling the full width of the page area.
 
 **The Field Configuration Drawer** — Provides all [field configuration](#configure-a-field) options.
-
-## Field Types
-
-<!--
-### Standard Fields
-### Presentation and Aliases
-### Field Groups
-### Single File
-### Multiple Files
-### Relationship Fields
-### Translation Fields
--->
 
 ## Create a Field (Standard)
 
@@ -120,7 +109,7 @@ To duplicate a field, follow these steps:
 3. Click the <span mi icon>content_copy</span> **Duplicate Field** option.
 4. Choose the collection you'd like to create the field in and set the Field Name.
 
-::: warning Relational and Primary Key Fields
+:::warning Relational and Primary Key Fields
 
 Currently, it is not possible to duplicate relational fields or a collection's primary key.
 
@@ -150,9 +139,9 @@ Adjusting the field width in **Fields and Layout** will change field width on th
 
 1. Click <span mi icon>more_vert</span> to open the field's context menu.
 1. Choose one of the following:
-   - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-   - <span mi icon>border*right</span> **Full Width** — The field is shown at the full form width. \_The Default.*
-   - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
+   - <span mi icon>border_vertical</span> Half Width — The field is shown at half the form width.
+   - <span mi icon>border_right</span> Full Width — The default. The field is shown at the full form width.
+   - <span mi icon>aspect_ratio</span> Fill Width — The field is shown filling the full width of the page area.
 
 ## Manually Sort Fields
 
