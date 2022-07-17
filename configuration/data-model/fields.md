@@ -19,7 +19,7 @@
 - [<span mi icon>visibility_off</span> Hide Field on Detail](#toggle-field-visibility-for-admins) — Toggle field visibility on the Item Detail Page for Admin Users.
 - [Width](#adjust-field-width) — Fields have three different width options:
   - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-  - <span mi icon>border_right</span> **Full Width** — The field is shown at the full form width. _The Default_
+  - <span mi icon>border*right</span> **Full Width** — The field is shown at the full form width. \_The Default*
   - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
 
 **The Field Configuration Drawer** — Provides all [field configuration](#configure-a-field) options.
@@ -151,7 +151,7 @@ Adjusting the field width in **Fields and Layout** will change field width on th
 1. Click <span mi icon>more_vert</span> to open the field's context menu.
 1. Choose one of the following:
    - <span mi icon>border_vertical</span> **Half Width** — The field is shown at half the form width.
-   - <span mi icon>border_right</span> **Full Width** — The field is shown at the full form width. _The Default._
+   - <span mi icon>border*right</span> **Full Width** — The field is shown at the full form width. \_The Default.*
    - <span mi icon>aspect_ratio</span> **Fill Width** — The field is shown filling the full width of the page area.
 
 ## Manually Sort Fields
@@ -161,37 +161,6 @@ Adjusting the field width in **Fields and Layout** will change field width on th
 </video>
 
 Adjusting the field order in **Fields and Layout** will change the order on the [Item Detail Page](/app/content/collections/#item-page). To manually sort fields, click <span mi icon>drag_indicator</span> to drag and drop the field as desired.
-
-<!-- MOVED TO configuration/data-model/collections.md
-## Configure a Sort Field
-
-<video autoplay muted loop controls title="Batch Edit Items">
-	<source src="https://cdn.directus.io/docs/v9/app-guide/content/content-collections/content-collections-20220415A/manually-sort-items-20220415A.mp4" type="video/mp4" />
-</video>
-
-The sort feature enables Users to manually sort Items within the Directus App. This is typically shown on the Collection Page and it can
-also be used for sorting Items within [Junction Tables](/getting-started/glossary/#junction-collections). To configure a Sort Field,
-follow these steps.
-
-1. [Create a Field](#create-a-field-standard) with an `INTEGER` data type.\
-	You may want to set this field to be "hidden" so it doesn't show up within the Item Details Page.
-2. Choose your Sort Field from the dropdown under **Settings > Data Model > [Collection] > Sort**.
-3. Next, you may want to learn how to [manually sort Items](/app/content/collections/#manually-sort-items).
-
-::: tip Automatic Setup
-
-When you [create a Collection](/configuration/data-model/collections/#create-a-collection), you have the option of creating a
-**Sort** field. If you choose to include this Field, the Collection's sort settings will automatically be configured for you.
-
-:::
-
-::: tip Interface Sorting
-
-To configure manual sorting within an Interface (eg: M2M, O2M, or M2A), configure as above, but also set the **Sort
-Field** on the Field's Relationship pane.
-
-:::
--->
 
 ## Delete a Field
 

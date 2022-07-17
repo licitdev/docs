@@ -283,7 +283,7 @@ filtered out. This gives you the flexibility to manage archived items however yo
 
 :::
 
-### Sort
+### Sort Field
 
 <video autoplay muted loop controls title="Batch Edit Items">
 	<source src="https://cdn.directus.io/docs/v9/app-guide/content/content-collections/content-collections-20220415A/manually-sort-items-20220415A.mp4" type="video/mp4" />
