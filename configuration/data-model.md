@@ -35,25 +35,25 @@ data types, primary/foreign keys, rows, relationships, and schemas then feel fre
 
 Directus is an SQL database wrapper. A database is a set of data stored in a computer, in a structured way, making it organized, accessible, and scalable. The specific way you structure your data within a database is called your data model.
 
-![A Database Schema](image.webp)
+![A Database Schema](./temp_media/database.png)
 
 ### Database vs Excel
 
-Let's use Excel to make a comparison most business users can relate with. You know how you can build a table on one sheet in Excel, build another table on another sheet, then link the rows of each table together? That is pretty much how a relational data model works. But there are some key points where Excel and relational databases two differ.
+To make a comparison most business users can relate with, storing data in a database is _somewhat_ similar to storing data in Excel spreadsheets. You know how you can build a table on one sheet in Excel, build another table on another sheet, then link the rows of each table together? That is pretty much how a relational data model works. But there are some key points where Excel and relational databases two differ.
 
 <!-- a database is *somewhat similar* to building multiple spreadsheets in a Excel workbook and dynamically linking their rows together.  -->
 
-![Data in an Excel Spreadsheet](image.webp)
+![Data in an Excel Spreadsheet](./temp_media/database-versus-excel.png)
 
 Many times, we store data as a table in Excel, but that's not always the case, as the program serves tons of other purposes. Excel lets you make your data stylized _(bold, italicized, colored, custom fonts, etc.)_, set dynamic functions in cells, add graphics like charts and graphs, and input any kind of data into any cell you'd like with no enforced structure. Your Excel spreadsheet is a blank canvas, designed to store up to tens of thousands of rows of information.
 
-![Data in a Database](image.webp)
+![Data in a Database](./temp_media/data-in-a-database.png)
 
 There is no stylization within databases. They strictly store raw data values in a structured way. Any time you want to style data, build a function, put data into a graph, _etc.,_ you must use a dashboard, website, app, or some other kind of UI which applies stylization logic to the raw data. Databases store raw, un-stylized, structured data and are designed to handle millions, _and in some cases billions and trillions_, of rows of information.
 
 ### Data Tables
 
-![A Data Table](image.webp)
+![A Data Table](./temp_media/a-data-table.png)
 
 <!-- image should note rows and columns. -->
 
@@ -61,7 +61,7 @@ SQL databases store data across data tables. Data tables typically store informa
 
 ### Columns
 
-![bank transaction](image.webp)
+![A Column](./temp_media/column.png)
 
 Columns are categories that store one kind of information. Each column has a unique, descriptive name and stores one unit of information in each of its [cell values](#cell-values). Columns helps keep the data organized, consistent, and easily accessible. The columns you choose to add to a data table will completely depend on the information you need to store.
 
@@ -76,29 +76,31 @@ Each value in a column is stored in its own cell. In general, you want to create
 
 ### Data Types
 
-To further maintain structure and consistency, when you create a column, you must also define its data type. For example, an `age` column might be assigned `INTEGER` and a `blog_content` column may be assigned a `STRING` or `TEXT` data type. There are countless incongruent, unexpected, and potentially dangerous behaviors that could emerge when a data type is misconstrued. Therefore, it is important to set the right data type when creating a column.
+To further maintain structure and consistency, when you create a column, you must also define its data type. For example, an `age` column might be assigned `INTEGER` and a `blog_content` column may be assigned a `STRING` or `TEXT` data type. There are countless incongruent, unexpected, and potentially dangerous behaviors that could emerge when a program tries to process data with the wrong data type.
 
-For example, if you type the character `2`, it may be stored as an
+To give an example, if you type the character `2`, it may be stored as an
 `INTEGER` or as `STRING`. If you stored `2` as an `INTEGER`, when you try to add
 `2 + 2`, the computer may calculate `4`. If you stored the character `2` as a `STRING`, when you try to add `2 + 2`, the
 computer will concatenate them into`22`.
 
+Therefore, setting the right data type on each column is an extremely important step in data model configuration.
+
 ### Rows
 
-![Rows](image.webp)
+![Rows](./temp_media/row.png)
 
 Each row stores data associated to a unique record, event, object, entity, observation, etc.
 Data tables can contain millions, _even billions and trillions_ of rows of data.
 
 ### Primary Keys
 
-![Primary Key](image.webp)
+![Primary Key](./temp_media/Primary-Key.jpg)
 
-In order to uniquely identify and track each row, every data table must have a primary key column. A primary key is a unique ID that identifies a specific row. Any type of system could be used to generate unique primary keys, so long as it guarantees each key is unique. Perhaps the most common is incrementing integers, where the primary key on each new row increments as follows `1`, `2`, `3`, `4`, etc... The primary key column guarantees you can always find a row and differentiate it from other rows.
+In order to uniquely identify and track each row, every data table must have a primary key column. A primary key is a unique ID that identifies a specific row. Any pattern or system could be used to generate unique primary keys, so long as it guarantees each key is unique. Perhaps the most common is incrementing integers, where the primary key on each new row increments as follows `1`, `2`, `3`, `4`, etc... The primary key column guarantees you can always find a row and differentiate it from other rows.
 
 ### Foreign Keys
 
-![Foreign Keys in a Data Table](image.webp)
+![Foreign Keys in a Data Table](./temp_media/Foreign-Key.png)
 
 Since primary keys uniquely identify each and every row in a data table, they are the perfect tool to create relationships. If you want to relationally link two data tables, you create a column to store primary keys from a related table. In this case, we use the term _foreign key_, to signify it is the key from a foreign table.
 
@@ -108,20 +110,20 @@ Note that when we talk about two related tables, we refer to them as the _parent
 
 - **One to One** — Each row in the parent data table can link to one row in the related table.
 - **Many to One** — Many rows in the parent data table can link to one row in the related table.
-- **One to Many** — Each row in a data table can be link to many rows in another data table.
-  _Note that in the data model, a Many-to-One and One-to-Many relationships are exactly the same._
+- **One to Many** — Each row in a data table can link to many rows in another data table.
+  _Note that in the data model, Many-to-One and One-to-Many relationships are exactly the same._
 - **Many to Many** — Many rows in the parent table can link to many rows in the related table.
   M2M relationships require a third table, called junction data table, to manage its relationships.
-- **Many to Any** — Many Rows in a data table can link to many rows across _any other table in the database_.
-  Similar to M2M relationships, M2As require a junction data table, but also requires an additional column to store the related tables' names.
+- **Many to Any** — Many Rows in a data table can link to many rows across any other table in the database.
+  Similar to M2M relationships, M2As require a junction data table, but also require an additional column on the junciton table to store the related tables' names.
 
-To learn more about how these relationships work conceptually as well as how they are implemented within Directus, see our guide on [relationships](/configuration/data-model/relationships).
+To learn more about how these relationships work conceptually as well as how they are handled within Directus, see our guide on [relationships](/configuration/data-model/relationships).
 
 ### Database Schemas
 
 So far, we have seen data tables presented like this:
 
-![A Data Table](image.webp)
+![A Data Table](./temp_media/a-data-table.png)
 
 As you design your relational data model, you will need to create a schema to keep track of its complexity. A schema is a blueprint for your data model, which defines its data tables, columns in each table, details about each column and relationships between tables. It does not include the actual data points stored. Here is is a simple schema of two relationally linked tables:
 
@@ -140,15 +142,15 @@ table_two
 - table_one_id (foreign key, relationally links rows via table_one.column1)
 ```
 
-In this schema, we defined two tables with overtly generic names `table_one`, `table_two` and `column1`, `column2`, etc. The names you choose for data tables and columns are up to you. Pick any unique, memorable name that represents the data contents stored within.
+In this schema, we defined two tables with overtly generic names `table_one`, `table_two` and `column1`, `column2`, etc. The names you choose for data tables and columns are up to you. Ideally, you should pick unique, memorable names that identify the data contents stored within.
 
 Our schema above is fairly basic, just like the data model it represents. With more complex schemas, containing dozens _(or maybe hundreds!)_ of relationally linked data tables, you may want a visualization of how each and every table interlinks.
 
-![A Complex Schema](img.webp)
+![A Complex Schema](./temp_media/a-complex-schema.png)
 
 ### Avoid Data Redundancy
 
-Relational databases allow us to build data models that avoid redundant data. Data redundancy is when you have the same data for the same object or observation in two locations in your database. This is inefficient and dangerous.
+Relational databases allow us to build data models that avoid redundant data. Data redundancy is when you have the same data stored in multiple locations in your database. This is inefficient and dangerous.
 
 To give an example of this, let's consider a `blogs` table. In a blog, you may want to display the author's details, so you add an `author_name` column.
 
@@ -161,7 +163,7 @@ blogs
 - author_name
 ```
 
-The table above stores the author name directly inside of the `blogs` data table. However, throughout our project, we may likely need more information about authors, such as their email address, social media, etc. We _could_ put this author information into the `blogs` data table:
+The table above stores the author name directly inside of the `blogs` data table. However, let's imagine that along with our blog posts, we want to display more information about authors, such as their email address, social media, etc. We _could_ put this author information into the `blogs` data table....
 
 ```
 blogs
@@ -174,15 +176,17 @@ blogs
 - author_twitter
 ```
 
-You should immediately start to realize this data table no longer represents one single object, but two: blog posts and authors. This is _almost always_ a sign the data should be split across different tables and relationally linked.
+You might be starting to notice this data table no longer represents one single object, but two: blog posts and authors. This is _almost always_ a sign the data should be split across different tables and relationally linked.
 
-Continuing on, let's say that for our project, authors are one type of user. All user details are stored in a `users` data table and its data is displayed on each user profile page, as well as for messaging and other types of transactions, _which is a common situation in many projects_. In this case, the author name and other details would also need to exist in the `users` table.
+Continuing on, let's say that for our project, let's imagine that authors are one type of user. All user details are stored in a `users` data table and its data is displayed on each user profile page, as well as for messaging and other types of transactions, _this is a common situation in many projects_. In this case, the author name and other details would also need to exist in the `users` table.
 
-![blogs and users](image.webp)
+![blogs and users](./temp_media/blogs-and-users.jpg)
 
 This creates data redundancy. There are two big problems with data redundancy:
 
 First, it becomes difficult or impossible to maintain accurate information. If the author decides to change their social media information under `users`, someone would have to go through and update author details on every single row containing their blog posts. With just 10 or even 100 blog posts, this would be annoying but perhaps not a massive problem. However, as volume of data grows to millions or billions of rows, updating redundant data becomes a serious problem.
+
+Furthermore, an error on an author's name and personal information may not be a truly dangerous situation, but inaccurate information would be catastrophic in data tables containing banking transactions or medical records!
 
 Second, it wastes storage space and slows down performance. With a data model containing a few hundred blog posts, duplicate data may not take up enough space to
 cause huge drops in performance. But again, if you have the same information repeated again and again over millions or billions of rows, storage is wasted on a
@@ -190,7 +194,7 @@ massive scale.
 
 ### Why We Use Relational Data Models
 
-As shown from the previous section, you want to make sure that every single data point is unique. This is where the _relational_ part of relational data models comes into play. To avoid data redundancy, it is always best practice to _normalize your data model_, which is the technical term used to describe designing a data model so that there is no duplicate information stored _at all_.
+As shown from the previous section, you want to make sure that every single data point is unique. This is where the _relational_ part of relational data models comes into play. To avoid data redundancy, it is always best practice to _normalize your data model_, which is the technical term used to describe designing a data model so that there is no duplicate information stored _at all_. Instead of storing all information needed in a given situation in one table, like we saw when mixing up blog and author information above, database normalization is the process of splitting up this information across tables and relationally linking it all together.
 
 There is a lot to learn to master database normalization and a thorough education in the practice goes beyond the scope of this document. There are plenty of resources to learn about it online. However, to provide one simple example by improving the example `blogs` data table provided in the previous [Avoid Data Redundancy](#avoid-data-redundancy) section:
 
@@ -205,7 +209,7 @@ blogs
 - author_twitter
 ```
 
-As described in the section on [Rows](/configuration/data-model/#rows), we want each row in a date table to represent one unique record, event, object, entity, observation, etc. To do this, we can remove the `author_name` column from the `blogs` table and replace it with an `author` table, which stores keys from the `users` table.
+As described in the section on [Rows](/configuration/data-model/#rows), we want each row in a date table to represent one unique record, event, object, entity, observation, etc. To do this, we can remove the `author_name` column from the `blogs` table and replace it with an `author_id` table, which stores foreign keys from the `users` table.
 
 ```
 blog
@@ -226,12 +230,11 @@ users
 - twitter
 ```
 
-Notice the difference. Before, we placed the author's name directly into a column on the `blogs` data table _(creating redundancy)_.
-Now we have replaced that `author_name` column, which contained an author's actual name, with the `author_id` column, which contains foreign keys from `users`. From there we can use the foreign key to relationally link up data from a row in `blogs` with data from the related row in `users`.
+Notice the difference. Before, we placed the author's name directly into a column on the `blogs` data table _(creating redundancy, since already had the author name in the `users` table)_. Now we have replaced that `author_name` column, which contained an author's actual name, with the `author_id` column, which contains foreign keys from `users`. From here, we can use the foreign key to relationally link up data from a row in `blogs` with data from the related row in `users`.
 
 ### Working With Relational Data Models
 
-![Database, Backend, Frontend]()
+![Database, Backend, Frontend](./temp_media/database-backend-frontend.png)
 
 Once you've designed your data model conceptually, you typically build and interact with it using SQL, or Structured Querying Language. This language is used to create, read & query, update, and delete anything and everything in the database.
 
@@ -252,9 +255,9 @@ developers with strong SQL database skills, building out APIs and GUIs to build 
 </video>
 
 All relational data model concepts listed above apply in Directus. You get complete, un-opinionated, relational data model design and configuration.
-The difference is that Directus handles all SQL, builds the API, and provides frontend UX and logic for you.
+The difference is that Directus handles all SQL, builds the API, and provides a Data Studio which lets business users work with data in a human-friendly way.
 
-The Data Studio also offers features and functionalities to display and interact with your data in a more human-friendly way.
+The Data Studio also offers features and functionalities to display and interact with your data intuitively.
 Once your data model is configured, the data is accessible across the other [modules](/getting-started/glossary/#modules). Data model configuration takes place across the following pages and menus:
 
 **Settings > Data Model > [Collection] > [Field] > Field Configuration Drawer > [Section]**
@@ -288,7 +291,7 @@ You access all collections, including built-in system collections required to po
 
 Fields are database columns, but with a twist.
 
-Remember, SQL database columns store pure, raw data. From there, developers build out custom logic and UIs to determine how this data is displayed and interacted with. In Directus, fields encompass all database-level column configurations, as well as the logic that the Data Studio uses to display and interact with the column's data, such as [Displays](/getting-started/glossary/#displays), [Interfaces](/getting-started/glossary/#interfaces), validation, conditions, and more. Directus also has [alias fields](/getting-started/glossary/#alias), which are virtual and do not match directly to a column. To learn more, see our guide on [fields](/configuration/data-model/fields).
+Remember, SQL database columns store pure, raw data. From there, developers build out custom logic and UIs to determine how this data is displayed and interacted with. In Directus, fields encompass column configurations, as well as custom configuration over how to the data is displayed and interacted with in the Data Studio. Directus also has [alias fields](/getting-started/glossary/#alias), which are virtual and do not match directly to a column. To learn more, see our guide on [fields](/configuration/data-model/fields).
 
 ## Items
 
@@ -298,9 +301,9 @@ Remember, SQL database columns store pure, raw data. From there, developers buil
 
 Items are data table rows, but with a twist.
 
-Since _rows can be related to other rows from other data tables_, we use the term items to emphasize that it represents all the information for one complete unit, or thing, or observation, _or well... item!_ Remember from our discussion above about traditional databases, the ideal relational database is _normalized_. Unfortunately, normalized data is not always the easiest for people to imagine or envision because related data is spread across multiple data tables.
+Remember from our discussion above about traditional databases, the ideal relational database is _normalized_. Unfortunately, normalized data is not always the easiest for people to imagine or envision because related data is spread across multiple data tables. Therefore, when you access an item, you may get more than just the current collection's row level-data, _in some cases an item may provide access to the data in related rows._
 
-Therefore, when you access an item, you may get more than just the current collection's row level-data, _in some cases an item may provide access to the data in related rows._ You can access items from within the other app modules, such as [Content](/app/content), [User Directory](/app/user-directory), and [File Library](/app/file-library).
+You can access items from within the other app modules, such as [Content](/app/content), [User Directory](/app/user-directory), and [File Library](/app/file-library).
 
 ## Data Types
 
@@ -325,5 +328,5 @@ Primary keys are called IDs in Directus fairly frequently. When you [create a co
 	<source src="" type="video/mp4" />
 </video>
 
-Directus supports all standard [types of relationships](#types-of-relationships), as well as a few more of its own _compound_ types. To learn more,
+Directus supports all standard [types of relationships](#types-of-relationships), as well as a few more of its own compound types. To learn more,
 see our guide on [relationships](/configuration/data-model/relationships).

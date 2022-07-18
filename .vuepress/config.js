@@ -224,6 +224,11 @@ module.exports = {
 							// 	children: [
 							// 		{
 							// 			type: 'page',
+							// 			path: '/configuration/data-model/fields/field-types',
+							// 			title: 'Field Types',
+							// 		},
+							// 		{
+							// 			type: 'page',
 							// 			path: '/configuration/data-model/fields/schema',
 							// 			title: 'Schema',
 							// 		},

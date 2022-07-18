@@ -26,11 +26,7 @@ Therefore, in order to build an appropriate, efficient, and effective relational
 
 ### Directus vs Classic Data Model Terms
 
-Terminology is used intentionally. When classic Data Model terms are used _(such as data table, column, and row)_, this signals that an explanation is isolated to what happens in the database on the actual data model. When Directus terminology is used, it signals that the explanation includes the Data Studio's logic and functionality.
-
-### Foreign Key Columns
-
-Relationships in a database are created with foreign key columns. Since Directus abstracts away the technical details fo the data model, other terms are used to describe this, such as the item's ID. In this document, we will always say foreign key and primary key to make things crystal clear.
+Terminology is used intentionally. When classic data model terms are used _(such as data table, column, and row)_, this signals that, at that moment, the explanation is focused strictly on what happens in the database. When Directus terminology is used, it signals that the explanation includes the Data Studio's logic and functionality.
 
 ### Parent vs. Related Collections
 
