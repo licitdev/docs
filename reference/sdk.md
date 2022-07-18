@@ -235,8 +235,14 @@ By default, Directus creates an instance of `Auth` which handles refresh tokens 
 ### Get current token
 
 ```ts
-const token = directus.auth.token;
+const token = await directus.auth.token;
 ```
+
+::: warning Async
+
+Reading the token is an asynchronous getter. This makes sure that any currently active `refresh` calls are being awaited before the current token is returned.
+
+:::
 
 ### Login
 

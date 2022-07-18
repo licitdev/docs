@@ -21,7 +21,7 @@ pageClass: page-reference
 
 ---
 
-## Accessing an File
+## Accessing a File
 
 <div class="two-up">
 <div class="left">

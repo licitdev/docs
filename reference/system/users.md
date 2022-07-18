@@ -366,7 +366,7 @@ Supports all [global query parameters](/reference/query).
 
 A partial [user object](#the-user-object).
 
-`email` and `password` are required.
+`email` and `password` are required to authenticate with the default authentication provider.
 
 ### Returns
 
