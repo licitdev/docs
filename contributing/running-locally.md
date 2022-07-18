@@ -12,6 +12,9 @@ version of Directus.
 You can use the JavaScript tool manager [volta](https://volta.sh/) to automatically install the current node and npm
 versions.
 
+You will also need to have the package manager [pnpm](https://pnpm.io/) installed. You can install pnpm using the
+following command: `npm install -g pnpm`.
+
 :::
 
 ## 1. Fork the Directus repository
@@ -35,8 +38,8 @@ git checkout -b YOUR-BRANCH-NAME
 ## 4. Install the dependencies and build the project
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm -r build
 ```
 
 ## 5. Create a `.env` file
@@ -53,25 +56,41 @@ To start the initialization run the following command:
 
 ```bash
 # From within the root of the project
-npm run cli bootstrap
+pnpm cli bootstrap
 
 # For SQLite you need to run the command in the 'api' context (to ensure the database file is created in the right directory)
-npm run cli bootstrap --workspace=api
+pnpm --dir api cli bootstrap
 ```
 
 This will set-up the required tables for Directus and make sure all the migrations have run.
 
 ## 7. Start the development server
 
-First you need to choose what packages you want to work on. Then, you should run the `dev` script on that package. You
-can see their names and list of scripts in their related `package.json`. Example of running APP:
+You can run all packages in development with the following command:
 
 ```bash
-npm run dev -w @directus/app
+pnpm -r dev
 ```
 
-If you want to work on multiple packages at once, you should create a new instance of your terminal for each package:
-Example of running Api, App:
+::: warning Race Conditions
+
+When running multiple or all packages, sometimes `ts-node` may not start up the API properly because of race conditions
+due to changes happening to other packages. You can either rerun the command to restart the API or opt to choose what
+packages to work on as described below.
+
+:::
+
+If you wish to choose what packages to work on, you should run the `dev` script for that package. You can see their
+names and list of scripts in their related `package.json`.
+
+Example of running the Api only:
+
+```bash
+pnpm --filter directus dev
+```
+
+If you want to work on multiple packages at once, you should create a new instance of your terminal for each package.
+Example of running both the Api and App at the same time:
 
 <table>
   <tr>
@@ -86,14 +105,14 @@ Example of running Api, App:
   <td>
 
 ```bash
-npm run dev -w directus
+pnpm --filter directus dev
 ```
 
   </td>
   <td>
 
 ```bash
-npm run dev -w @directus/app
+pnpm --filter @directus/app dev
 ```
 
   </td>
@@ -102,19 +121,12 @@ npm run dev -w @directus/app
 
 ---
 
-To work on the Documentation (public website version), you should navigate to the `docs` directory and run the following
-command:
+To work on the Documentation (public website version), you should clone the
+[`directus/docs`](https://github.com/directus/docs) repository and run the following command:
 
 ```bash
 npm install
-```
-
-<sup>ℹ This is necessary because the way vue-server-renderer imports vue</sup>
-
-Then you should run
-
-```bash
-npm run dev:site
+npm run dev
 ```
 
 ::: tip
@@ -143,7 +155,7 @@ Install [Docker](https://docs.docker.com/get-docker/) and ensure that the servic
 
 ```bash
 # Ensure that you are testing on the lastest codebase
-npm run build
+pnpm -r build
 
 # Clean up in case you ran the tests before
 docker compose -f tests/docker-compose.yml down -v
@@ -152,5 +164,5 @@ docker compose -f tests/docker-compose.yml down -v
 docker compose -f tests/docker-compose.yml up -d --wait
 
 # Run the tests
-npm run test:e2e
+pnpm test:e2e
 ```
