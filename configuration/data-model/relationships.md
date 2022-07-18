@@ -15,22 +15,22 @@ This is because, in Directus, you must understand how M2Os work to understand O2
 
 ## Overview
 
-The Data Studio makes _the process_ of configuring relational data models easier, faster, and more intuitive by offering a code-free configuration. Directus _does not_ enforce opinionated schemas, rule systems, or limitations to your data models. Therefore, aside from any technical limitations of your project's infrastructure or core requirements for relational data models, _like having a primary key field for every collection or a data type assigned to every field,_ you are free to build the data model as you want, _for better or worse._
+The Data Studio makes _the process_ of configuring relational data models easier, faster, and more intuitive by offering code-free configuration. Directus _does not_ enforce opinionated schemas, rule systems, or other arbitrary limitations to your data models. Therefore, aside from any technical limitations of your project's infrastructure or core requirements for any relational data model, _like having a primary key field for every collection or a data type assigned to every field,_ you are free to build the data model as you want, _for better or worse._
 
 Therefore, in order to build an appropriate, efficient, and effective relational data model, you still need a rock solid _conceptual_ understanding of relational data models. In this guide, we will go over the following topics:
 
 - What kinds of relationships exist within Directus.
 - How to configure a desired relationship within the Data Studio.
-- How they are implemented in the data model and displayed in the Data Studio.
+- How relationship are implemented in the data model and displayed in the Data Studio.
 - When it might be appropriate to use a given type of relationship.
 
 ### Directus vs Classic Data Model Terms
 
-Terminology is used intentionally. When classic data model terms are used _(such as data table, column, and row)_, this signals that, at that moment, the explanation is focused strictly on what happens in the database. When Directus terminology is used, it signals that the explanation includes the Data Studio's logic and functionality.
+Terminology is used intentionally. When classic data model terms are used _(such as data table, column, and row)_ this signals that, at that moment, the explanation is focused strictly on what happens in the database. When Directus terminology is used, it signals that the explanation includes Directus logic and functionality, including how it is displayed in the Data Studio.
 
 ### Parent vs. Related Collections
 
-When we describe the relationship between two tables, remember that the relationships are always described relative to their "parent" collection. However, this naming convention is based on perspective. For example, within the data model, a [many-to-one relationship](#many-to-one-m2o) is the same as a [one-to-many relationship](#one-to-many-o2m), the term used just depends on which collection you consider to be the parent.
+When we describe the relationship between two tables, remember that the relationships are always described relative to their "parent" collection. However, this naming convention is based on perspective. For example, within the data model, a [many-to-one relationship](#many-to-one-m2o) is the same as a [one-to-many relationship](#one-to-many-o2m), the term used just depends on which collection you consider the parent.
 
 ## Many-to-One (M2O)
 
@@ -41,7 +41,7 @@ When we describe the relationship between two tables, remember that the relation
 The easiest way to configure an M2O field is to follow the guide on how to [create a field (standard)](/configruation/data-model/fields/#create-a-field-standard) and select the M2O Interface from the template wizard.
 
 In an M2O relationship, multiple items from the parent collection are linked to one single item in the related collection.
-For example, a city can only be in one country, but a country can contain many cities.
+For example, there are many cities in a country, but a city can only be in one country.
 
 ![Many-to-One Relational Diagram](image.webp)
 
@@ -76,7 +76,7 @@ the O2M field type from the template wizard.
 
 To explain what an O2M is, let's continue on with the example relationship used above, linking the `city` and `country` collections.
 
-Within the data model, an O2M relationship is the exact same relationship as an M2O. The name O2M simply reflects that you are looking at an M2O relationship from the other collection's perspective. So now the parent collection is the one with no new relational column.
+Within the data model, an O2M relationship is the exact same relationship as an M2O. The name O2M simply reflects that you are looking at an M2O relationship from the other collection's perspective. So now the parent collection is `countries`.
 
 ![One-to-Many Relational Diagram](image.webp)
 
@@ -96,7 +96,7 @@ cities (the related collection)
 - country_id (an M2O field, stores the key from countries.id, creating the relationship in the data model)
 ```
 
-Therefore, configuring an O2M relationship does not produce a new column in the database. In fact it doesn't make any change to the database whatsoever. Remember from the [M2O](#many-to-one-m2o) section, we saw that configuring an M2O does not provide a way to access relationally linked items from within an Item Details Page in the related collection. In Directus, configuring an O2M creates an [Alias](/getting-started/glossary/#alias) field, which dynamically lists all items connected within the column created on an M2O.
+Remember, configuring an O2M relationship does not produce a new column in the database. In fact it doesn't make any change to the database whatsoever. Remember from the [M2O](#many-to-one-m2o) section, we saw that configuring an M2O does not provide a way to access relationally linked items from within an Item Details Page in the related collection. In Directus, configuring an O2M creates an [Alias](/getting-started/glossary/#alias) field, which dynamically lists all items connected within the column created on an M2O.
 
 <video title="M2O Doesn't Display in O2M" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
@@ -124,11 +124,11 @@ _In an O2O relationship, one item from the parent collection can be linked with 
 
 <!-- _If an item in the parent collection is linked to an item in the child collection, it cannot be linked to another item, and vice-versa_. -->
 
-To better understand O2O relationships, let's continue with the `cities` and `countries` collections as our example. Each country has one capital city, so you may want to specify this. While we could create a new `capital_city` field on the `countries` colelction and add in the name of the capital city directly, the capital city would then exist in tow places within the database, `countries.capital_city` as well as in the `cities` collection. Remember, from [Avoid Data Redundancy](/configuration/data-model/#avoid-data-redundancy) that we want to make sure the same data is never input twice. The better wya to do this would be to create an O2O relationship.
+To better understand O2O relationships, let's continue with the `cities` and `countries` collections as our example. Each country has one capital city, so you may want to specify this. While we could create a new `capital_city` field on the `countries` collection and add in the name of the capital city directly, the capital city would then exist in two places within the database, `countries.capital_city` as well as in the `cities` collection. Remember, from [Avoid Data Redundancy](/configuration/data-model/#avoid-data-redundancy) that we want to make sure the same data is never input twice. The better way to do this would be to create an O2O relationship.
 
 ![One-to-One Relational Diagram](image.webp)
 
-Since the O2O relationship links just one item from each collection, we could technically add the O2O field on either collection. Let's take a look at the raw schema if we add the relationship to the `cities` collection. Notice the `capital_of` collection below:
+Since the O2O relationship links just one item from each collection, we could technically add the O2O field on either collection. Let's take a look at the raw schema if we add the relationship to the `cities` collection. Notice the `capital_of` field below:
 
 ```
 cities (the related collection)
@@ -170,12 +170,12 @@ Finally, since the O2O field is really just an M2O field behind the scenes and s
 	<source src="" type="video/mp4" />
 </video>
 
-The easiest way to configure an O2O is to follow the guide on how to [create a field (standard)](/configruation/data-model/fields/#create-a-field-standard) and select **Many to Many** from the template wizard.
+The easiest way to configure an M2M is to follow the guide on how to [create a field (standard)](/configruation/data-model/fields/#create-a-field-standard) and select **Many to Many** from the template wizard.
 
 The relationship types we have seen so far only required one foreign key column to link the parent collection and related collection. An M2M relationship is composed _of two foreign key columns_ stored within an additional table, called a _junction table_, which stores each linked row between the parent table and related table.
 
 Junction tables are required in M2M relationships because the number of relationships created can _(and often will!)_ outnumber the number of rows in either data
-table. In other words, if you have `x` rows in the parent column and `y` rows in the related column, you need room to store `x * y` rows. Junction tables provide a place to store all the relationships between rows, no matter how many exist.
+table. In other words, if you have `x` rows in the parent column and `y` rows in the related column, you need room to store up to `x * y` rows. Junction tables provide a place to store all the relationships between rows, no matter how many exist.
 
 To demonstrate this, let's think about the relationship between recipes and ingredients: a _recipe_ can have many _ingredients_, and _ingredients_ can be in many _recipes_.
 
@@ -187,14 +187,14 @@ Let's take a look at the schema created when we configure an M2M within Directus
 recipes (collection)
 - id (primary key)
 - name
-- ingredients (an O2M alias field, does not exist in the database, displays items linked from recipe_ingredients)
+- ingredients (an M2M alias field, does not exist in the database, displays items linked from recipe_ingredients)
 ```
 
 ```
 recipes_ingredients (junction collection)
 - id (primary key)
-- recipe (an M2O, stores foreign key from recipes.id)
-- ingredient (an M2O, stores foreign key from ingredients.id)
+- recipe (stores foreign key from recipes.id)
+- ingredient (stores foreign key from ingredients.id)
 - quantity (optional a regular field, stores other data on the connection)
 ```
 
@@ -207,8 +207,8 @@ ingredients (collection)
 Note the following points from the schema above. When we create an M2M in Directus:
 
 - Our junction collection, `recipe_ingeredients`, contains two foreign key columns. Each row contains a pair of foreign keys. This is what creates the relationships between the two tables.
-- Within the Data Studio, if the M2M relationship was created within the `recipes` collection, an M2M [alias](/getting-started/glossary/#alias) field, `ingredients`, is created in `recipes`. If the M2M relationship was created within the `ingredients` collection, that is the collection the M2M alias field will be created on.
-- Therefore, assuming the M2M relationship is created within the `recipes` collection, Directus does not automatically add an O2M for the `ingredients` collection. However, you can configure another O2M on `ingredients` if desired:
+- Within the Data Studio, if the M2M relationship was created within the `recipes` collection, an M2M [alias](/getting-started/glossary/#alias) field, `ingredients`, is created in `recipes`. If the M2M relationship were to be configured within the `ingredients` collection, that is the collection the M2M alias field will be created in.
+- Therefore, assuming the M2M relationship is created within the `recipes` collection, Directus does not automatically add a field to display recipes within the `ingredients` collection. However, you can configure an alias field within `ingredients` if desired:
 
 ```
 ingredients (collection)
@@ -247,7 +247,7 @@ Let's look at the schema:
 pages (collection)
 - id
 - name
-- sections (an O2M alias field, does not exist in the database, displays items from page_sections)
+- sections (an M2A alias field, does not exist in the database, displays items from page_sections)
 ```
 
 ```
@@ -278,7 +278,7 @@ images (collection)
 
 Note the following points from the schema above. When we create an M2A in Directus:
 
-- Compared to the M2O and M2M relationships, there may be a lower likelihood that you will need to configure O2Ms on related collections, such as `headings`, `text` and `images`.
+- Compared to the M2O and M2M relationships, there may be a lower likelihood that you will need to configure alias fields on related collections, such as `headings`, `text` and `images`.
 - Each collection has a unique collection key, so this serves as an adequate identifier in the `page_sections.collection` field.
 
 ## Translations (O2M)
@@ -291,9 +291,9 @@ The easiest way to configure a Translations relationship is to follow the guide 
 
 Directus provides this special relational Interface designed specifically to handle Translations. When you create a Translations O2M in the Data Studio, the following
 things happen within your data model. A junction collection and a `languages` collection is created. All your translations are stored within context fields,
-configured by you, on the junction collection. Another table dedicated to translation names is created. Therefore, when you create a Translations O2M, you also create an M2M relationship behind the scenes, \*in addition to the special Translations O2M [Alias](/getting-started/glossary/#alias) field. Therefore, it is called the Translations O2M, because we interact with the O2M field. But remember, behind the scenes, it is powered by an M2M relationship.
+configured by you, on the junction collection. Another table dedicated to translation names is created. Therefore, when you create a Translations O2M, you also create an M2M relationship behind the scenes. Therefore, it is called the Translations O2M, because we interact with the O2M field. But remember, behind the scenes, it is powered by an M2M relationship.
 
-To demonstrate, let's create a translation relation for `articles`, a common content type that you may want to translate:
+To demonstrate, let's create an O2M translations relationship for `articles`, a common content type that you may want to translate:
 
 ![Translations O2M](image.webp)
 
@@ -318,24 +318,24 @@ article_translations (collection)
 
 ```
 languages (collection)
-- language_code (a primary key, it is a manually typed language code, e.g., "en-US")
+- language_code (a primary key from a manually typed language code, e.g., "en-US")
 - name  (stores the language name, e.g., "English")
 ```
 
 Note the following points from the schema above. When we create a Translations O2M relationship in Directus:
 
-- You add all **non-translated** fields, such as the `author` and `publish_date`, to the parent collection.
-- As demonstrated by `article_translations.title` and `article_translations.text`, any _translated_ fields should be added as context fields on the Translations
+- You will add all the **non-translated** fields, such as the `author` and `publish_date`, to the parent collection.
+- As demonstrated by `article_translations.title` and `article_translations.text`, any _translated_ fields should be added as context fields on the
   junction collection.
 
 :::tip
 
-Remember, you are not bound to use this relationship for translations, you can build your data model as desired. You could create individual fields for each translation, such as `title_english`, `title_german`, `title_french`, and so on. However, this is not easily extensible and it creates a sub-optimal experience to have every single translation of every field on the item details page.
+Remember, you are not bound to use this for translations, you can build your data model as desired. You could create individual fields for each translation, such as `title_english`, `title_german`, `title_french`, and so on. However, this is not easily extensible and it creates a sub-optimal experience to have every single translation of every field on the item details page.
 
 :::
 
 ::: tip Translating Parent Fields
 
-There may come a time when you want to make an pre-existing parent field translatable. To do this, you can [duplicate a field](/configuration/data-model/fields/#duplicate-a-field), move it to the translation collection, and then delete the parent field. However, be aware that duplicating a field does _not_ duplicate any existing field values.
+There may come a time when you want to make a pre-existing parent field translatable. To do this, you can [duplicate a field](/configuration/data-model/fields/#duplicate-a-field), move it to the translation collection, and then delete the parent field. However, be aware that duplicating a field does _not_ duplicate any existing field values.
 
 :::

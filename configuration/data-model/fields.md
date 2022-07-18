@@ -38,17 +38,17 @@ To make field configuration as intuitive and easy as possible, a template wizard
    A side drawer will open, with various pre-configured Interfaces to choose from.
 3. Click to select the desired field and a basic configuration menu will open.
 4. Add a **Field Key**, _which is also used as the default field name_.\
-   Optional: Configure the the other field details as desired.\
+   Optional: Configure the other field details as desired.\
    Optional: Click [Continue in Advanced Field Creation Mode](#create-a-field-advanced).
 5. When you are ready, click **Save** to confirm.
 
 ## Create a Field (Advanced)
 
-<video title="Create a Field (Standard)" autoplay muted loop controls>
+<video title="Create a Field (Advanced)" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-This field creation method opens the field configuration drawer, so you can customize every detail, from the start. To create a field in advanced mode, follow these steps.
+This field creation method opens the field configuration drawer so you can customize every detail from the start. To create a field in advanced mode, follow these steps.
 
 1. Navigate to **Settings > Data Model > [Collection Name]**.
 2. Under **Fields & Layout**, click the **Create Field in Advanced Mode** button.\

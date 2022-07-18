@@ -24,19 +24,19 @@ API documentation
 	<source src="" type="video/mp4" />
 </video>
 
-<!-- General introduction. Goal is to balance and contextualize "System Collections". -->
+Collections are data tables. Typically, you access items within a collection in the [Content Module](/app/content/).
 
 ### System Collections
-
-System Collections store the data and configuration details required to power your Directus project.
 
 <video title="System Collections" autoplay muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-Since System Collections store configuration details integral to your Directus project, you cannot edit or delete them or any of their default fields, as reconfigurations would break your project. However, you _can_ create and configure new fields on any System Collection. This enables you to safely customize your data model as desired.
+System collections store the data and configuration details required to power your Directus project.
 
-System collections are not displayed in the Content Module. The following sections will go over the logic and functionality each System Collection is responsible for, as well as where to find relevant App and API documentation.
+Since system collections store information that powers your Directus project. You cannot reconfigure system collections or any of their default fields, as reconfigurations would break your project. However, you _can_ create and configure new fields on a system collection. This lets you safely customize your data model as desired.
+
+System collections are not displayed in the Content Module. The following sections will go over the logic and functionality each system collection is responsible for, as well as where to find relevant App and API documentation.
 
 | System Collection | Purpose                                                                                                                                     | APP                                                                                 | API                                              |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------ |
@@ -192,21 +192,20 @@ To configure a collection, follow these steps.
 
 1. Navigate to **Settings > Data Model** and click the desired collection.\
    The collection's configuration page will open.
-2. Make configurations as desired.
+2. Make configurations as desired. Configuration options are broken into six categories.
+   - [Fields and Layout](#fields-layout)
+   - [Collection Setup](#collection-setup)
+   - [Archive](#archive)
+   - [Sort](#sort-field)
+   - [Accountability](#accountability)
+   - [Duplication](#duplication)
 3. Click <span mi btn>check</span> to confirm.
-
-The configuration options available on this page are broken into the following six categories.
-
-- [Fields and Layout](/configuration/data-model/collections/#configure-a-collection-fields-layout)
-- [Collection Setup](/configuration/data-model/collections/#configure-a-collection-collection-setup)
-- [Archive](/configuration/data-model/collections/#configure-a-collection-archive)
-- [Sort](/configuration/data-model/collections/#configure-a-collection-sorts)
-- [Accountability](/configuration/data-model/collections/#configure-a-collection-accountability)
-- [Duplication](/configuration/data-model/collections/#configure-a-collection-duplication)
 
 ### Fields & Layout
 
-![Fields and Layout](image.webp)
+<video title="Fields and Layout" autoplay muted loop controls>
+	<source src="" type="video/mp4" />
+</video>
 
 This section allows you to create and configure fields, as well as configure how fields are displayed on the
 [Item Details Page](/app/content/items). To learn more, please see the documentation on [Fields](/configuration/data-model/fields).
@@ -226,7 +225,7 @@ These controls allow you to modify how the collection is displayed within the Co
 - **Display Template** — Create a [Display Template](/app/display-templates) for the collection.
 - **Hidden** — Toggle whether the collection should be globally hidden in the other app modules, even for admin users. You cannot hide collections for admins via permissions like other roles, so this comes in handy to tidy up the Content Module.
 - **Singleton** — Toggle to bypass the [Collection Page](/app/content/collections/) and take users to the
-  [Item Details Page](/app/content/items/).\
+  [Item Details Page](/app/content/items/).
 - **Collection Naming Translations** — Translate the collection name across multiple languages. When the default
   language is changed in [Project Settings](/configuration/project-settings/#general) or
   [User Details Page](/app/user-directory/#user-details-page), the relevant translation, if any exists, will be used
@@ -252,8 +251,7 @@ A Singleton is a collection that only contains one single item, such as the data
 </video>
 
 Selects a field to handle archiving items. This provides a _soft-delete_ functionality for items in a collection.
-Archived items will still exist in the collection and database, but are filtered within the Data Studio.\
-To configure an archive field, follow these steps.
+Archived items will still exist in the collection and database, but are filtered within the Data Studio. To configure an archive field, set the following four input fields as desired.
 
 - **Archive Field** — Selects the archive field from a dropdown menu.
 - **Archive App Filter** — Toggles whether app users can
@@ -290,14 +288,17 @@ filtered out. This gives you the flexibility to manage archived items however yo
 </video>
 
 The sort feature enables users to [manually sort Items](/app/content/collection/#manually-sort-items) within the Data Studio. This is typically shown on the **Content Module > Collection Page**. It can
-also be used for sorting items within [Junction Collections](/getting-started/glossary/#junction-collections). A standard field, configured with an `INTEGER` data type, is required. As shown in the video, fields which cannot serve as sort fields will be grayed out and un-selectable in the Sort Field dropdown. To configure a sort field, follow these steps.
-
-1. [Create a Field](configuration/data-model/fields/#create-a-field-standard) with an `INTEGER` data type.\
-2. Choose a field from the dropdown under **Settings > Data Model > [Collection] > Sort**.
-3. Click <span mi btn>check</span> to confirm.
-4. Once you sort field is configured, you may want to learn how to [manually sort Items](/app/content/collections/#manually-sort-items).
+also be used for sorting items within [Junction Collections](/getting-started/glossary/#junction-collections). A standard field, configured with an `INTEGER` data type, is required. As shown in the video, fields which cannot serve as sort fields will be grayed out and un-selectable in the Sort Field dropdown.
 
 **Sort Field** — Select a Field to custom sort and order items. Click **Deselect** to disable.
+
+To configure a sort field, follow these steps.
+
+1. [Create a Field](configuration/data-model/fields/#create-a-field-standard) with an `INTEGER` data type.
+2. Choose a field from the dropdown under **Settings > Data Model > [Collection] > Sort**.
+3. Click <span mi btn>check</span> to confirm.
+
+Once you sort field is configured, you may want to learn how to [manually sort Items](/app/content/collections/#manually-sort-items).
 
 ::: tip Automatic Setup
 
