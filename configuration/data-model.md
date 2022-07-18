@@ -106,7 +106,7 @@ Since primary keys uniquely identify each and every row in a data table, they ar
 
 ### Types of Relationships
 
-Note that when we talk about two related tables, we refer to them as the _parent table_ and the _related table_. These two terms are based solely on perspective, similar to the terms _this_ and _that_ or the terms _here_ and _there_. They signify the perspective from which you are looking at the relationship.There are several ways you can relationally link tables:
+There are several ways you can relationally link tables:
 
 - **One to One** — Each row in the parent data table can link to one row in the related table.
 - **Many to One** — Many rows in the parent data table can link to one row in the related table.
@@ -118,6 +118,12 @@ Note that when we talk about two related tables, we refer to them as the _parent
   Similar to M2M relationships, M2As require a junction data table, but also require an additional column on the junciton table to store the related tables' names.
 
 To learn more about how these relationships work conceptually as well as how they are handled within Directus, see our guide on [relationships](/configuration/data-model/relationships).
+
+### Parent vs. Related Collections
+
+Note that when we talk about two related tables, we refer to them as the _parent table_ and the _related table_. These two terms are based solely on perspective, similar to the terms _this_ and _that_ or the terms _here_ and _there_. They signify the perspective from which you are looking at the relationship.
+
+For example, within the data model, a [many-to-one relationship](#many-to-one-m2o) is the same as a [one-to-many relationship](#one-to-many-o2m), the term used just depends on which collection you consider the parent.
 
 ### Database Schemas
 
