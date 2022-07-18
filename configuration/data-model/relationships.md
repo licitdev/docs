@@ -11,7 +11,7 @@
 <!-- [Data Model](/configuration/data-model). -->
 
 Regardless of the relationship you want to configure, we recommend you read every section of this document, in order, at
-least once. This is because, you must understand how M2Os work in Directus to understand O2Ms, you must understand M2Os
+least once. This is because you must understand how M2Os work in Directus to understand O2Ms, you must understand M2Os
 and O2Ms to understand M2Ms, etc.
 
 :::
