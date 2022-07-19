@@ -56,9 +56,9 @@ collection. For example, there are many cities in a country, but a city can only
 the parent collection must have a foreign key field to link items from the related collection. Therefore, we create a
 `country_id` field in the `cities` collection to store a foreign key to link the relevant country.
 
-![Many-to-One Relational Diagram](image.webp)
+![Many-to-One Relational Diagram](../temp_media/M2O-49.jpg)
 
-Let's take a look at the raw schema.
+Let's take a look at the schema.
 
 ```
 cities
@@ -73,7 +73,7 @@ countries
 - name
 ```
 
-Note the following things form the schema above:
+Note the following things from the schema above:
 
 - An M2O relationship requires just one column within the parent table.
 - When an M2O relational field is configured in Directus, the Item Details Pages on the parent collection will enable
@@ -102,15 +102,15 @@ which dynamically lists all items connected within the column created on an M2O.
 
 Let's continue with the example used above, linking the `city` and `country` collections.
 
-![One-to-Many Relational Diagram](image.webp)
+![One-to-Many Relational Diagram](../temp_media/O2M-50.jpg)
 
-Let's take a look at the raw schema.
+Let's take a look at the schema.
 
 ```
 countries
 - id
 - name
-- cities (the O2M alias field, does not exist in the database, allows access to all cities linked to a country)
+- cities (the O2M alias field, does not exist in the data table. Allows access to all cities linked to a country.)
 ```
 
 ```
@@ -156,15 +156,14 @@ While _we could_ create a new `capital_city` field on the `countries` collection
 directly, the capital city would then exist in two places within the database, `countries.capital_city` as well as in
 the `cities` collection.
 
-![Capital Cities Redundancy](image.webp)
+![Capital Cities Redundancy](../temp_media/capital-cities-redundancy.jpg)
 
-But remember, we want to [avoid data redundancy](/configuration/data-model/#avoid-data-redundancy). A better way to do
-this would be to create an O2O relationship. To do this, let's try adding a`capital_of` field to the `cities`
-collection.
+But remember, we want to [avoid data redundancy](/configuration/data-model/#avoid-data-redundancy). We can do this with
+an O2O relationship. To do this, let's try adding a`capital_of` field to the `cities` collection.
 
-![One-to-One Relational Diagram](image.webp)
+![An inefficient One-to-One Relationship](../temp_media/O2O-inefficient.jpg)
 
-Let's take a look at the raw schema.
+Let's take a look at the schema.
 
 ```
 cities
@@ -185,6 +184,10 @@ The relationship in the schema above works, and in some cases it may not matter 
 onto. But in this case it is sub-optimal. Since _most cities_ are not capital cities, the column will mostly contain
 `NULL` values. The more efficient option would be to add the O2O onto the `countries` collection since every single
 country has a capital city:
+
+![An efficient One-to-One Relationship](../temp_media/O2O-optimized.jpg)
+
+Let's take a look at the schema.
 
 ```
 countries
@@ -231,9 +234,9 @@ relationships between rows, no matter how many exist.
 To demonstrate this, let's think about the relationship between recipes and ingredients: a _recipe_ can have many
 _ingredients_, and _ingredients_ can be in many _recipes_.
 
-![Many-to-Many Relational Diagram](image.webp)
+![Many-to-Many Relational Diagram](../temp_media/M2M.jpg)
 
-Let's take a look at the schema created when we configure an M2M within Directus:
+Let's take a look at the schema.
 
 ```
 recipes
@@ -299,11 +302,11 @@ relationships. The difference is that the junction collection on an M2A also has
 _(the name of the collection)_ for related collections.
 
 One common example of when M2As are used is for _page builders_, which have a `pages` collection that combines multiple
-collections for each type of page section, such as `heading`, `text`, `image`, `video`, _etc_.
+collections for each type of page section, such as `heading`, `text_bodies`, `image`, `video`, _etc_.
 
-![Many-to-Any Relational Diagram](image.webp)
+![Many-to-Any Relational Diagram](../temp_media/M2A-58.jpg)
 
-Let's look at the schema:
+Let's take a look at the schema:
 
 ```
 pages
@@ -316,7 +319,7 @@ pages
 page_sections (junction collection)
 - id
 - pages_id (An M2O, stores foreign keys from pages.id)
-- collection (An M2O, stores name of the related collection, for example "headings", "text", or "images".)
+- collection (An M2O, stores name of the related collection, for example headings, text_bodies, or images.)
 - item (An M2O, stores foreign keys from headings.id, text.id, images.id, etc.)
 ```
 
@@ -327,7 +330,7 @@ headings
 ```
 
 ```
-text
+text_bodies
 - id
 - text
 ```
@@ -341,7 +344,7 @@ images
 Note the following points from the schema above. When we create an M2A in Directus:
 
 - Compared to the M2O and M2M relationships, there may be a lower likelihood that you will need to configure alias
-  fields on related collections, such as `headings`, `text` and `images`.
+  fields on related collections, such as `headings`, `text_bodies` and `images`.
 - Each collection has a unique collection name, so this serves as an adequate identifier in the
   `page_sections.collection` field.
 
@@ -365,7 +368,7 @@ the Translations O2M alias field. But behind the scenes, it is powered by an M2M
 To demonstrate, let's create an O2M translations relationship for `articles`, a common content type that you may want to
 translate.
 
-![Translations O2M](image.webp)
+![Translations O2M](../temp_media/O2M-translations.jpg)
 
 Let's take a look at the schema.
 
@@ -374,7 +377,7 @@ articles
 - id
 - author (a field that is not translated)
 - date_published (a field that is not translated)
-- translations (A Translations O2M alias field, allows access to items from article_translations)
+- translations (A Translations O2M alias field, does not exist within the data table. Allows access to items from article_translations)
 ```
 
 ```
