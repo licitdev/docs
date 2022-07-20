@@ -52,8 +52,7 @@ the API. Any type of file can be uploaded, _not just images_. When a Folder is s
 
 When a file is clicked in the File Listing Page, the File Details Page appears. This is a custom form for viewing assets
 and embeds, with core Fields included out-of-the-box (see below), and the ability for Administrators to add additional
-custom Fields. This page has the same features and functionality as the
-[Item Details Page](/getting-started/glossary/#items).
+custom Fields. This page has the same features and functionality as the [Item Page](/getting-started/glossary/#items).
 
 ![Files](https://cdn.directus.io/docs/v9/app-guide/file-library/file-library-20220305A/files-20220305A.webp)
 

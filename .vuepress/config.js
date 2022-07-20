@@ -138,8 +138,8 @@ module.exports = {
 							},
 							{
 								type: "page",
-								path: "/app/content/data-sharing",
-								title: "Data Sharing",
+								path: "/app/content/shares",
+								title: "Shares",
 							},
 						],
 					},
