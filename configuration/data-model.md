@@ -371,8 +371,8 @@ Directus terms and map them to classic relational database concepts.
 	<source src="" type="video/mp4" />
 </video>
 
-A collection _is a set of items_. This can be a 1-1 match-up with a data table in SQL, a group of other collections, or
-a readonly view.
+A collection _is a set of [items](#items)_. This can be a 1-1 match-up with a data table in SQL, a group of other
+collections, or a readonly view.
 
 You access all collections, including built-in system collections required to power your project, under **Settings >
 Data Model**. From there, click a collection to open its configurations page. To learn more, see our guide on
