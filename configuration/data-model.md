@@ -145,8 +145,8 @@ There are several ways you can relationally link tables:
   a third table, called junction data table. Note that the M2M is nothing more than an O2M and an M2O stored on the
   junction table.
 - **Many to Any** — Many Rows in a data table can link to many rows across any other table in the database. Similar to
-  M2M relationships, M2As require a junction data table, but also require an additional column on the junciton table to
-  store the related tables' names.
+  M2M relationships, M2As require a junction data table, but also require an additional column on the junctigit on table
+  to store the related tables' names.
 
 To learn more about how these relationships work conceptually as well as how they are handled within Directus, see our
 guide on [relationships](/configuration/data-model/relationships).
@@ -428,10 +428,10 @@ int: 2^31-1 (2,147,483,647) bigint: 2^63-1 (9,223,372,036,854,775,807)
 - **Auto-Incremented Integer** — IDs increment `1`, `2`, `3` up to `2^31-1` or `2,147,483,647`.
 - **Auto-Incremented Big Integer** IDs increment `1`, `2`, `3` up to `2^63-1` or `9,223,372,036,854,775,807`. _(only
   available in MySQL and PostgreSQL)_
-- **Generated UUID** — Universally Unique Identifier creates a a completely unique ID, not just for the database. Any
-  IDs generated with this system, not just in your database but any database in the Universe, are so statistically
-  unlikely to be repeated they works to create IDs.
-- **Manually Entered String** — You manually type out a unique string as the ID for each and every item.
+- **Generated UUID** — Universally Unique Identifier creates a a completely unique ID, not just for the database. IDs
+  generated with this system, not just in your database but any database in the Universe, are so statistically unlikely
+  to be repeated that for all practical purposes they are unique.
+- **Manually Entered String** — You manually type out a unique string as the ID for each item.
 
 ## Relationships
 
