@@ -1,22 +1,20 @@
 # Data Model
 
 > The Directus data studio enables no-code configuration and management for any SQL database, with no arbitrary
-> restrictions on how you build your data model. You get control over technical details like table, column and
-> relationship configuration, but also how how users view and interact with data from within the data studio.
+> restrictions on how you build your data model. You get control over table, column and relationship configuration, as
+> well as how users view and interact with data from within the data studio.
 
 [[toc]]
 
+<!--
 :::tip Before You Begin
 
-<!--
 Learn Directus
 Please see the [Quickstart Guide]().
 Configuration > Overview
--->
-
-Basic knowledge of relational database concepts and some experience with SQL are strongly recommended.
 
 :::
+-->
 
 :::tip Learn More
 
@@ -105,10 +103,10 @@ data type. There are countless incongruent, unexpected, and potentially dangerou
 program tries to process data with the wrong data type.
 
 To give an example, if you type the character `2`, it may be stored as an `INTEGER` or as `STRING`. If you stored `2` as
-an `INTEGER`, when you try to add `2 + 2`, the computer may calculate `4`. If you stored the character `2` as a
-`STRING`, when you try to add `2 + 2`, the computer will concatenate them into`22`.
+an `INTEGER`, when you try to add `2 + 2`, the computer may calculate `4`. If you stored the character `"2"` as a
+`STRING`, when you try to add `"2" + "2"`, the computer will concatenate them into `22`.
 
-Therefore, setting the right data type on each column is an extremely important step in data model configuration.
+Therefore, setting the right data type on each column is an important step in relational data model configuration.
 
 ### Rows
 
@@ -144,7 +142,8 @@ There are several ways you can relationally link tables:
 - **One to Many** — Each row in a data table can link to many rows in another data table. _Note that in the data model,
   Many-to-One and One-to-Many relationships are exactly the same._
 - **Many to Many** — Many rows in the parent table can link to many rows in the related table. M2M relationships require
-  a third table, called junction data table, to manage its relationships.
+  a third table, called junction data table. Note that the M2M is nothing more than an O2M and an M2O stored on the
+  junction table.
 - **Many to Any** — Many Rows in a data table can link to many rows across any other table in the database. Similar to
   M2M relationships, M2As require a junction data table, but also require an additional column on the junciton table to
   store the related tables' names.
@@ -372,7 +371,8 @@ Directus terms and map them to classic relational database concepts.
 	<source src="" type="video/mp4" />
 </video>
 
-A collection is a data table.
+A collection _is a set of items_. This can be a 1-1 match-up with a data table in SQL, a group of other collections, or
+a readonly view.
 
 You access all collections, including built-in system collections required to power your project, under **Settings >
 Data Model**. From there, click a collection to open its configurations page. To learn more, see our guide on
@@ -423,10 +423,15 @@ Primary keys are called IDs in Directus fairly frequently. When you
 [create a collection](/configuration/data-model/collections/#create-a-collection), you must add an `id` field. Directus
 supports the following types of IDs:
 
-- **Auto-Incremented Integer**
-- **Auto-Incremented Big Integer** _(MySQL and PostgreSQL only)_
-- **Generated UUID**
-- **Manually Entered String**
+int: 2^31-1 (2,147,483,647) bigint: 2^63-1 (9,223,372,036,854,775,807)
+
+- **Auto-Incremented Integer** — IDs increment `1`, `2`, `3` up to `2^31-1` or `2,147,483,647`.
+- **Auto-Incremented Big Integer** IDs increment `1`, `2`, `3` up to `2^63-1` or `9,223,372,036,854,775,807`. _(only
+  available in MySQL and PostgreSQL)_
+- **Generated UUID** — Universally Unique Identifier creates a a completely unique ID, not just for the database. Any
+  IDs generated with this system, not just in your database but any database in the Universe, are so statistically
+  unlikely to be repeated they works to create IDs.
+- **Manually Entered String** — You manually type out a unique string as the ID for each and every item.
 
 ## Relationships
 
