@@ -213,6 +213,21 @@ properties of the `project` object.
 
 </div>
 
+Logged in users also get the following information:
+
+<div class="definitions">
+
+`rateLimit` **false | object**\
+Whether or not the rate limiter is enabled.
+
+`rateLimit.points` **number**\
+If rate-limiter is enabled, amount of allowed points per duration
+
+`rateLimit.duration` **number**\
+If rate-limiter is enabled, duration in seconds in which points are counted
+
+</div>
+
 Admin users also get the following information:
 
 <div class="definitions">

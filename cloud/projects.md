@@ -235,9 +235,10 @@ destroy a Directus Cloud Project, follow these steps:
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
 3. Click the Project you wish to delete.
-4. Scroll to the bottom of the page and toggle <span mi icon dngr>local_fire_department</span>.
-5. Type in the Project Name.
-6. Click **"Destroy Project"**.
+4. Click **"Edit"** to enter the Project Details page.
+5. Scroll to the bottom of the page and toggle <span mi icon dngr>local_fire_department</span>.
+6. Type in the Project Name.
+7. Click **"Destroy Project"**.
 
 :::tip
 

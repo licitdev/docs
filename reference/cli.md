@@ -73,7 +73,8 @@ Migrate the database up/down to match the versions of Directus. Once you update 
 
 ### Migrate Schema to a different Environment
 
-To move your configured data model between Directus instances, you can use the schema "snapshot" and "apply" commands.
+This allows you to do things like migrate a schema from development to production. To move your configured data model
+between Directus instances, you can use the schema "snapshot" and "apply" commands.
 
 #### Snapshot the Data Model
 

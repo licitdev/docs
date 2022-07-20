@@ -44,7 +44,8 @@ it easier to identify different Directus projects.
 
 ## Security
 
-- **Auth Password Policy** — Allows setting a policy requirement for all user's passwords, with the following options:
+- **Auth Password Policy** — Sets a policy requirement for all user's passwords via a JavaScript regex. Supports the
+  following options:
   - None — Not recommended
   - Weak — Minimum of 8 characters
   - Strong — Uppercase, lowercase, numbers, and special characters

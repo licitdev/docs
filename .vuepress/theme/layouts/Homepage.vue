@@ -102,6 +102,7 @@
 					<li><a href="/configuration/relationships/">Data Relationships</a></li>
 					<li><a href="/self-hosted/config-options/#authentication">Single Sign-On (SSO)</a></li>
 					<li><a href="/self-hosted/installation/docker/">Installing with Docker</a></li>
+					<li><a href="/reference/cli/#migrate-schema-to-a-different-environment">Migrate Schema Between Environments</a></li>
 				</ul>
 			</div>
 
