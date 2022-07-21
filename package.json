@@ -12,7 +12,8 @@
     "build:md": "node build.js",
     "dev": "vuepress dev",
     "build": "vuepress build && npm run update-thumbnail",
-    "update-thumbnail": "thumbsmith deploy .vuepress/.thumbsmith/docs.thumbnail.html || exit 0"
+    "update-thumbnail": "thumbsmith deploy .vuepress/.thumbsmith/docs.thumbnail.html || exit 0",
+    "spellcheck": "spellchecker"
   },
   "watch": {
     "build": {
