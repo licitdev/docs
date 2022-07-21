@@ -39,6 +39,7 @@
     "reading-time": "1.5.0",
     "simple-git-hooks": "^2.8.0",
     "slugify": "1.6.2",
+    "spellchecker-cli": "^5.0.0",
     "vuepress": "1.8.2",
     "vuepress-plugin-clean-urls": "1.1.2"
   },
